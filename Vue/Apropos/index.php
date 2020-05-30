@@ -9,8 +9,8 @@
 <h3>Le Blogue du prof</h3>
 <ul>
     <li>L'application "Le Blogue du prof" permet de composer et de
-        diffuser des articles sur des sujets variés.</li>
-    <li>La page d'Accueil présente la liste des titres des articles
+        diffuser des plans_vols sur des sujets variés.</li>
+    <li>La page d'Accueil présente la liste des titres des plans_vols
         avec la date et le nom de l'auteur :</li>
     <ul>
         <li>Cette version n'offre pas encore la gestion des auteurs.
@@ -18,10 +18,10 @@
         </li>
         <li>
             Pour fin de démonstration, cette version offre la possibilité de changer de contrôleur d'accueil.<br/>
-            L'accueil présente alors plutôt la liste de tous les commentaires à l'accueil :
+            L'accueil présente alors plutôt la liste de tous les aeroports à l'accueil :
             <ul>
                 <li>
-                    Chaque commentaire indique alors le titre de l'article pour lequel il a été écrit, avec un lien vers cet article.
+                    Chaque aeroport indique alors le titre de l'plans_vol pour lequel il a été écrit, avec un lien vers cet plans_vol.
                 </li>
                 <li>
                     Cela peut vous être utile si vous désirez présenter à l'accueil le côté n de la relation 1 à n pour votre application.
@@ -29,56 +29,56 @@
             </ul>
         </li>
         <li>
-            <form action="<?= $utilisateur != '' ? 'Admin' : ''; ?>commentaires" method="post">
+            <form action="<?= $utilisateur != '' ? 'Admin' : ''; ?>aeroports" method="post">
                 <input type="submit" value="Changer de controleur d'accueil">
             </form>
         </li>
     </ul>
     <li>Si un utilisateur est en session : </li>
     <ul>
-        <li>on retrouve un lien pour créer un nouvel article :
+        <li>on retrouve un lien pour créer un nouvel plans_vol :
             <ul>
                 <li>
-                    L'article créé est attribué à l'utilisateur en session
+                    L'plans_vol créé est attribué à l'utilisateur en session
                 </li>
                 <li>
-                    La page de création d'un article offre de spécifier le sujet traité par
-                    l'article (type) par autocomplétion.<br>(par http seulement ; ne fonctionne pas avec https pour l'instant)
+                    La page de création d'un plans_vol offre de spécifier le sujet traité par
+                    l'plans_vol (type) par autocomplétion.<br>(par http seulement ; ne fonctionne pas avec https pour l'instant)
                 </li>
             </ul>
         </li>
         <li>
-            Les actions pour effacer/rétablir un commentaire sont affichées ;
+            Les actions pour effacer/rétablir un aeroport sont affichées ;
         </li>
         <li>
-            Les commentaires privés sont affichés ;
+            Les aeroports privés sont affichés ;
         </li>
         <li>
-            Il n'est plus possible d'ajouter un commentaire pour un article.
+            Il n'est plus possible d'ajouter un aeroport pour un plans_vol.
         </li>
     </ul>
     <li>Les lecteurs du blogue peuvent cliquer sur le titre d'un
-        article pour lire le texte complet de l'article :<br>
+        plans_vol pour lire le texte complet de l'plans_vol :<br>
     </li>
     <ul>
-        <li>À la suite du texte de l'article on offre la possibilité de
-            laisser un commentaire sur l'article ;</li>
-        <li>La personne qui veut laisser un commentaire doit
+        <li>À la suite du texte de l'plans_vol on offre la possibilité de
+            laisser un aeroport sur l'plans_vol ;</li>
+        <li>La personne qui veut laisser un aeroport doit
             s'identifier à l'aide d'un courriel valide :</li>
         <ul>
             <li>Un message est affiché si le courriel est invalide et le
-                commentaire n'est pas enregistré.<br>
+                aeroport n'est pas enregistré.<br>
             </li>
         </ul>
-        <li>On peut spécifier s'il s'agit d'un commentaire privé destiné
-            seulement à l'auteur de l'article :</li>
+        <li>On peut spécifier s'il s'agit d'un aeroport privé destiné
+            seulement à l'auteur de l'plans_vol :</li>
         <ul>
             <li>Pour l'instant cette fonctionnalité n'est pas encore
-                implantée et tous les commentaires sont affichés.</li>
+                implantée et tous les aeroports sont affichés.</li>
         </ul>
-        <li>On peut effacer un commentaire après confirmation (par l'auteur de l'article dans une prochaine version).</li>
-        <li>Un commentaire effacé peut être rétabli (par l'auteur de l'article dans une prochaine version).</li>
-        <li>Un commentaire ne peut pas être modifié.<br>
+        <li>On peut effacer un aeroport après confirmation (par l'auteur de l'plans_vol dans une prochaine version).</li>
+        <li>Un aeroport effacé peut être rétabli (par l'auteur de l'plans_vol dans une prochaine version).</li>
+        <li>Un aeroport ne peut pas être modifié.<br>
         </li>
     </ul>
 </ul>

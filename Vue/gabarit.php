@@ -13,8 +13,8 @@
             <header>
                 <a href="index.php"><h1 id="titreBlog">Gestion de plans de vols</h1></a>
                 <p>Version avec démarrage de session pour accès aux opérations de gestion</p>
-                <a href="<?= $utilisateur != '' ? 'Admin' : ''; ?>Commentaires">
-                    <h4>Afficher tous les commentaires de tous les articles</h4>
+                <a href="<?= $utilisateur != '' ? 'Admin' : ''; ?>Aeroports">
+                    <h4>Afficher tous les aeroports de tous les plans_vols</h4>
                 </a>
                 <a href="apropos">
                     <h4>À propos</h4>

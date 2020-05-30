@@ -25,10 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `articles`
+-- Structure de la table `plans_vols`
 --
 
-CREATE TABLE `articles` (
+CREATE TABLE `plans_vols` (
   `id` int(11) NOT NULL,
   `titre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sous_titre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -39,24 +39,24 @@ CREATE TABLE `articles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Déchargement des données de la table `articles`
+-- Déchargement des données de la table `plans_vols`
 --
 
-INSERT INTO `articles` (`id`, `titre`, `sous_titre`, `utilisateur_id`, `date`, `texte`, `type`) VALUES
-(1, 'Premier article', 'Premier sous-titre', 1, '2020-01-24', 'Texte du premier article', 'un type'),
-(2, 'Deuxième article', 'Deuxième sous-titre', 1, '2020-02-26', 'Texte du deuxième article', 'un type'),
-(3, 'article ajouté', 's-t ajouté', 2, '2020-03-30', 'texte ajouté', 'PHP'),
-(4, 'Sans commentaire', 'Nouvelle fonctionnalité sans commentaire', 2, '2020-04-12', 'Article-test pour la nouvelle fonctionnalité indiquant qu\'un article est sans commentaire', '');
+INSERT INTO `plans_vols` (`id`, `titre`, `sous_titre`, `utilisateur_id`, `date`, `texte`, `type`) VALUES
+(1, 'Premier plans_vol', 'Premier sous-titre', 1, '2020-01-24', 'Texte du premier plans_vol', 'un type'),
+(2, 'Deuxième plans_vol', 'Deuxième sous-titre', 1, '2020-02-26', 'Texte du deuxième plans_vol', 'un type'),
+(3, 'plans_vol ajouté', 's-t ajouté', 2, '2020-03-30', 'texte ajouté', 'PHP'),
+(4, 'Sans aeroport', 'Nouvelle fonctionnalité sans aeroport', 2, '2020-04-12', 'Plans_vol-test pour la nouvelle fonctionnalité indiquant qu\'un plans_vol est sans aeroport', '');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commentaires`
+-- Structure de la table `aeroports`
 --
 
-CREATE TABLE `commentaires` (
+CREATE TABLE `aeroports` (
   `id` int(11) NOT NULL,
-  `article_id` int(11) NOT NULL,
+  `plans_vol_id` int(11) NOT NULL,
   `date` date NOT NULL,
   `auteur` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `titre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -66,16 +66,16 @@ CREATE TABLE `commentaires` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Déchargement des données de la table `commentaires`
+-- Déchargement des données de la table `aeroports`
 --
 
-INSERT INTO `commentaires` (`id`, `article_id`, `date`, `auteur`, `titre`, `texte`, `prive`, `efface`) VALUES
-(5, 1, '2020-01-24', 'Moi mod.', 'Mon commentaire mod.', 'Voici mon commentaire modifié', 0, 0),
-(7, 1, '2020-01-29', 'Lui mod.', 'Son commentaire mod.', 'Voici son commentaire modifié', 0, 0),
-(9, 2, '2020-01-30', 'Nous', 'notre commentaire', 'Le texte de notre commentaire', 1, 0),
-(10, 2, '2020-02-01', 'Vous', 'Votre commentaire', 'Le texte de votre commentaire', 0, 1),
-(23, 1, '2020-03-12', 'Toi', 'Ton commentaire', 'Le texte de ton commentaire', 1, 0),
-(29, 2, '2020-03-12', 'a@b.c', 'Test de courriel', 'commentaire d\'un auteur avec courriel', 1, 0),
+INSERT INTO `aeroports` (`id`, `plans_vol_id`, `date`, `auteur`, `titre`, `texte`, `prive`, `efface`) VALUES
+(5, 1, '2020-01-24', 'Moi mod.', 'Mon aeroport mod.', 'Voici mon aeroport modifié', 0, 0),
+(7, 1, '2020-01-29', 'Lui mod.', 'Son aeroport mod.', 'Voici son aeroport modifié', 0, 0),
+(9, 2, '2020-01-30', 'Nous', 'notre aeroport', 'Le texte de notre aeroport', 1, 0),
+(10, 2, '2020-02-01', 'Vous', 'Votre aeroport', 'Le texte de votre aeroport', 0, 1),
+(23, 1, '2020-03-12', 'Toi', 'Ton aeroport', 'Le texte de ton aeroport', 1, 0),
+(29, 2, '2020-03-12', 'a@b.c', 'Test de courriel', 'aeroport d\'un auteur avec courriel', 1, 0),
 (30, 3, '2020-03-30', 'a@b.c', 'courriel valide', 'test du courriel', 0, 1);
 
 -- --------------------------------------------------------
@@ -143,18 +143,18 @@ INSERT INTO `utilisateurs` (`id`, `nom`, `identifiant`, `mot_de_passe`) VALUES
 --
 
 --
--- Index pour la table `articles`
+-- Index pour la table `plans_vols`
 --
-ALTER TABLE `articles`
+ALTER TABLE `plans_vols`
   ADD PRIMARY KEY (`id`),
   ADD KEY `utilisateur_id` (`utilisateur_id`);
 
 --
--- Index pour la table `commentaires`
+-- Index pour la table `aeroports`
 --
-ALTER TABLE `commentaires`
+ALTER TABLE `aeroports`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `article_id` (`article_id`);
+  ADD KEY `plans_vol_id` (`plans_vol_id`);
 
 --
 -- Index pour la table `types`
@@ -173,15 +173,15 @@ ALTER TABLE `utilisateurs`
 --
 
 --
--- AUTO_INCREMENT pour la table `articles`
+-- AUTO_INCREMENT pour la table `plans_vols`
 --
-ALTER TABLE `articles`
+ALTER TABLE `plans_vols`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `commentaires`
+-- AUTO_INCREMENT pour la table `aeroports`
 --
-ALTER TABLE `commentaires`
+ALTER TABLE `aeroports`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
@@ -201,16 +201,16 @@ ALTER TABLE `utilisateurs`
 --
 
 --
--- Contraintes pour la table `articles`
+-- Contraintes pour la table `plans_vols`
 --
-ALTER TABLE `articles`
-  ADD CONSTRAINT `articles_ibfk_1` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateurs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `plans_vols`
+  ADD CONSTRAINT `plans_vols_ibfk_1` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateurs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `commentaires`
+-- Contraintes pour la table `aeroports`
 --
-ALTER TABLE `commentaires`
-  ADD CONSTRAINT `commentaires_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `aeroports`
+  ADD CONSTRAINT `aeroports_ibfk_1` FOREIGN KEY (`plans_vol_id`) REFERENCES `plans_vols` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

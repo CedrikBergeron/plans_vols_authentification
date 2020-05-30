@@ -3,7 +3,7 @@
 require_once 'Framework/Modele.php';
 
 /**
- * Fournit les services d'accès aux types d'articles 
+ * Fournit les services d'accès aux types d'plans_vols 
  * 
  * @author André Pilon
  */

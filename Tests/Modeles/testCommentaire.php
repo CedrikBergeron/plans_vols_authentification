@@ -1,12 +1,12 @@
 <?php
 
-require_once 'Modele/Commentaire.php';
+require_once 'Modele/Aeroport.php';
 
-$tstCommentaire = new Commentaire;
-$commentaires = $tstCommentaire->getCommentaires(1);
-echo '<h3>Test getCommentaires : </h3>';
-var_dump($commentaires->rowCount());
+$tstAeroport = new Aeroport;
+$aeroports = $tstAeroport->getAeroports(1);
+echo '<h3>Test getAeroports : </h3>';
+var_dump($aeroports->rowCount());
 
-$commentaire = $tstCommentaire->getCommentaire(5);
-echo '<h3>Test getCommentaire : </h3>';
-var_dump($commentaire);
+$aeroport = $tstAeroport->getAeroport(5);
+echo '<h3>Test getAeroport : </h3>';
+var_dump($aeroport);
