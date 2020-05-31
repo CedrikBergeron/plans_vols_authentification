@@ -2,16 +2,16 @@
 
 require_once 'Controleur/ControleurAdmin.php';
 require_once 'Modele/Plans_vol.php';
-require_once 'Modele/Aeroport.php';
+require_once 'Modele/Reservation.php';
 
 class ControleurAdminPlans_vols extends ControleurAdmin {
 
     private $plans_vol;
-    private $aeroport;
+    private $reservation;
 
     public function __construct() {
         $this->plans_vol = new Plans_vol();
-        $this->aeroport = new Aeroport();
+        $this->reservation = new Reservation();
     }
 
 // Affiche la liste de tous les plans_vols du blog
@@ -25,8 +25,8 @@ class ControleurAdminPlans_vols extends ControleurAdmin {
         $idPlans_vol = $this->requete->getParametreId("id");
         $plans_vol = $this->plans_vol->getPlans_vol($idPlans_vol);
         $erreur = $this->requete->getSession()->existeAttribut("erreur") ? $this->requete->getsession()->getAttribut("erreur") : '';
-        $aeroports = $this->aeroport->getAeroports($idPlans_vol);
-        $this->genererVue(['plans_vol' => $plans_vol, 'aeroports' => $aeroports, 'erreur' => $erreur]);
+        $reservations = $this->reservation->getReservations($idPlans_vol);
+        $this->genererVue(['plans_vol' => $plans_vol, 'reservations' => $reservations, 'erreur' => $erreur]);
     }
 
     public function ajouter() {

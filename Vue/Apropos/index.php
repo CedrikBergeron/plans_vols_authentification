@@ -18,10 +18,10 @@
         </li>
         <li>
             Pour fin de démonstration, cette version offre la possibilité de changer de contrôleur d'accueil.<br/>
-            L'accueil présente alors plutôt la liste de tous les aeroports à l'accueil :
+            L'accueil présente alors plutôt la liste de tous les reservations à l'accueil :
             <ul>
                 <li>
-                    Chaque aeroport indique alors le titre de l'plans_vol pour lequel il a été écrit, avec un lien vers cet plans_vol.
+                    Chaque reservation indique alors le titre de l'plans_vol pour lequel il a été écrit, avec un lien vers cet plans_vol.
                 </li>
                 <li>
                     Cela peut vous être utile si vous désirez présenter à l'accueil le côté n de la relation 1 à n pour votre application.
@@ -29,7 +29,7 @@
             </ul>
         </li>
         <li>
-            <form action="<?= $utilisateur != '' ? 'Admin' : ''; ?>aeroports" method="post">
+            <form action="<?= $utilisateur != '' ? 'Admin' : ''; ?>reservations" method="post">
                 <input type="submit" value="Changer de controleur d'accueil">
             </form>
         </li>
@@ -48,13 +48,13 @@
             </ul>
         </li>
         <li>
-            Les actions pour effacer/rétablir un aeroport sont affichées ;
+            Les actions pour effacer/rétablir un reservation sont affichées ;
         </li>
         <li>
-            Les aeroports privés sont affichés ;
+            Les reservations privés sont affichés ;
         </li>
         <li>
-            Il n'est plus possible d'ajouter un aeroport pour un plans_vol.
+            Il n'est plus possible d'ajouter un reservation pour un plans_vol.
         </li>
     </ul>
     <li>Les lecteurs du blogue peuvent cliquer sur le titre d'un
@@ -62,23 +62,23 @@
     </li>
     <ul>
         <li>À la suite du texte de l'plans_vol on offre la possibilité de
-            laisser un aeroport sur l'plans_vol ;</li>
-        <li>La personne qui veut laisser un aeroport doit
+            laisser un reservation sur l'plans_vol ;</li>
+        <li>La personne qui veut laisser un reservation doit
             s'identifier à l'aide d'un courriel valide :</li>
         <ul>
             <li>Un message est affiché si le courriel est invalide et le
-                aeroport n'est pas enregistré.<br>
+                reservation n'est pas enregistré.<br>
             </li>
         </ul>
-        <li>On peut spécifier s'il s'agit d'un aeroport privé destiné
+        <li>On peut spécifier s'il s'agit d'un reservation privé destiné
             seulement à l'auteur de l'plans_vol :</li>
         <ul>
             <li>Pour l'instant cette fonctionnalité n'est pas encore
-                implantée et tous les aeroports sont affichés.</li>
+                implantée et tous les reservations sont affichés.</li>
         </ul>
-        <li>On peut effacer un aeroport après confirmation (par l'auteur de l'plans_vol dans une prochaine version).</li>
-        <li>Un aeroport effacé peut être rétabli (par l'auteur de l'plans_vol dans une prochaine version).</li>
-        <li>Un aeroport ne peut pas être modifié.<br>
+        <li>On peut effacer un reservation après confirmation (par l'auteur de l'plans_vol dans une prochaine version).</li>
+        <li>Un reservation effacé peut être rétabli (par l'auteur de l'plans_vol dans une prochaine version).</li>
+        <li>Un reservation ne peut pas être modifié.<br>
         </li>
     </ul>
 </ul>

@@ -34,7 +34,7 @@ PUBLIC "-//W3C//DTD SVG 1.1//EN"
    <rect width="96" height="20" x="384" y="187" style="fill:none;stroke:black;"/>
    <text width="96" height="20" x="389" y="201" style="fill:black;" font-family="Arial" font-size="16px">type</text>
    <rect width="112" height="20" x="53" y="174" style="fill:#007;stroke:black;"/>
-   <text width="112" height="20" x="58" y="188" style="fill:#fff;" font-family="Arial" font-size="16px"> aeroports</text>
+   <text width="112" height="20" x="58" y="188" style="fill:#fff;" font-family="Arial" font-size="16px"> reservations</text>
    <rect width="112" height="20" x="53" y="194" style="fill:#aea;stroke:black;"/>
    <text width="112" height="20" x="58" y="208" style="fill:black;" font-family="Arial" font-size="16px">id</text>
    <rect width="112" height="20" x="53" y="214" style="fill:none;stroke:black;"/>

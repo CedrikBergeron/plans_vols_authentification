@@ -46,15 +46,15 @@ INSERT INTO `plans_vols` (`id`, `titre`, `sous_titre`, `utilisateur_id`, `date`,
 (1, 'Premier plans_vol', 'Premier sous-titre', 1, '2020-01-24', 'Texte du premier plans_vol', 'un type'),
 (2, 'Deuxième plans_vol', 'Deuxième sous-titre', 1, '2020-02-26', 'Texte du deuxième plans_vol', 'un type'),
 (3, 'plans_vol ajouté', 's-t ajouté', 2, '2020-03-30', 'texte ajouté', 'PHP'),
-(4, 'Sans aeroport', 'Nouvelle fonctionnalité sans aeroport', 2, '2020-04-12', 'Plans_vol-test pour la nouvelle fonctionnalité indiquant qu\'un plans_vol est sans aeroport', '');
+(4, 'Sans reservation', 'Nouvelle fonctionnalité sans reservation', 2, '2020-04-12', 'Plans_vol-test pour la nouvelle fonctionnalité indiquant qu\'un plans_vol est sans reservation', '');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `aeroports`
+-- Structure de la table `reservations`
 --
 
-CREATE TABLE `aeroports` (
+CREATE TABLE `reservations` (
   `id` int(11) NOT NULL,
   `plans_vol_id` int(11) NOT NULL,
   `date` date NOT NULL,
@@ -66,16 +66,16 @@ CREATE TABLE `aeroports` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Déchargement des données de la table `aeroports`
+-- Déchargement des données de la table `reservations`
 --
 
-INSERT INTO `aeroports` (`id`, `plans_vol_id`, `date`, `auteur`, `titre`, `texte`, `prive`, `efface`) VALUES
-(5, 1, '2020-01-24', 'Moi mod.', 'Mon aeroport mod.', 'Voici mon aeroport modifié', 0, 0),
-(7, 1, '2020-01-29', 'Lui mod.', 'Son aeroport mod.', 'Voici son aeroport modifié', 0, 0),
-(9, 2, '2020-01-30', 'Nous', 'notre aeroport', 'Le texte de notre aeroport', 1, 0),
-(10, 2, '2020-02-01', 'Vous', 'Votre aeroport', 'Le texte de votre aeroport', 0, 1),
-(23, 1, '2020-03-12', 'Toi', 'Ton aeroport', 'Le texte de ton aeroport', 1, 0),
-(29, 2, '2020-03-12', 'a@b.c', 'Test de courriel', 'aeroport d\'un auteur avec courriel', 1, 0),
+INSERT INTO `reservations` (`id`, `plans_vol_id`, `date`, `auteur`, `titre`, `texte`, `prive`, `efface`) VALUES
+(5, 1, '2020-01-24', 'Moi mod.', 'Mon reservation mod.', 'Voici mon reservation modifié', 0, 0),
+(7, 1, '2020-01-29', 'Lui mod.', 'Son reservation mod.', 'Voici son reservation modifié', 0, 0),
+(9, 2, '2020-01-30', 'Nous', 'notre reservation', 'Le texte de notre reservation', 1, 0),
+(10, 2, '2020-02-01', 'Vous', 'Votre reservation', 'Le texte de votre reservation', 0, 1),
+(23, 1, '2020-03-12', 'Toi', 'Ton reservation', 'Le texte de ton reservation', 1, 0),
+(29, 2, '2020-03-12', 'a@b.c', 'Test de courriel', 'reservation d\'un auteur avec courriel', 1, 0),
 (30, 3, '2020-03-30', 'a@b.c', 'courriel valide', 'test du courriel', 0, 1);
 
 -- --------------------------------------------------------
@@ -150,9 +150,9 @@ ALTER TABLE `plans_vols`
   ADD KEY `utilisateur_id` (`utilisateur_id`);
 
 --
--- Index pour la table `aeroports`
+-- Index pour la table `reservations`
 --
-ALTER TABLE `aeroports`
+ALTER TABLE `reservations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `plans_vol_id` (`plans_vol_id`);
 
@@ -179,9 +179,9 @@ ALTER TABLE `plans_vols`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `aeroports`
+-- AUTO_INCREMENT pour la table `reservations`
 --
-ALTER TABLE `aeroports`
+ALTER TABLE `reservations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
@@ -207,10 +207,10 @@ ALTER TABLE `plans_vols`
   ADD CONSTRAINT `plans_vols_ibfk_1` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateurs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `aeroports`
+-- Contraintes pour la table `reservations`
 --
-ALTER TABLE `aeroports`
-  ADD CONSTRAINT `aeroports_ibfk_1` FOREIGN KEY (`plans_vol_id`) REFERENCES `plans_vols` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `reservations`
+  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`plans_vol_id`) REFERENCES `plans_vols` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

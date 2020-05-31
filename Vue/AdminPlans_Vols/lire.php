@@ -13,22 +13,22 @@
 <header>
     <h1 id="titreReponses">Réponses à <?= $this->nettoyer($plans_vol['titre']) ?> :</h1>
 </header>
-<?= ($aeroports->rowCount() == 0) ? '<p class="message">Pas encore de aeroports pour cet plans_vol.</p>' : '' ?>
+<?= ($reservations->rowCount() == 0) ? '<p class="message">Pas encore de reservations pour cet plans_vol.</p>' : '' ?>
 <?php
-foreach ($aeroports as $aeroport):
+foreach ($reservations as $reservation):
     ?>
-    <?php if ($aeroport['efface'] == '0') : ?>
-        <?= $this->nettoyer($aeroport['prive']) ? '<p class="prive">' : '<p>'; ?>
-        <a href="AdminAeroports/confirmer/<?= $this->nettoyer($aeroport['id']) ?>" >
+    <?php if ($reservation['efface'] == '0') : ?>
+        <?= $this->nettoyer($reservation['prive']) ? '<p class="prive">' : '<p>'; ?>
+        <a href="AdminReservations/confirmer/<?= $this->nettoyer($reservation['id']) ?>" >
             [Effacer]</a>
-        <?= $this->nettoyer($aeroport['date']) ?>, <?= $this->nettoyer($aeroport['auteur']) ?> dit : <?= $this->nettoyer($aeroport['prive']) ? '(EN PRIVÉ)' : '' ?><br/>
-        <strong><?= $this->nettoyer($aeroport['titre']) ?></strong><br/>
-        <?= $this->nettoyer($aeroport['texte']) ?>
+        <?= $this->nettoyer($reservation['date']) ?>, <?= $this->nettoyer($reservation['auteur']) ?> dit : <?= $this->nettoyer($reservation['prive']) ? '(EN PRIVÉ)' : '' ?><br/>
+        <strong><?= $this->nettoyer($reservation['titre']) ?></strong><br/>
+        <?= $this->nettoyer($reservation['texte']) ?>
         </p>
     <?php else : ?>
-        <p class="efface"><a href="AdminAeroports/retablir/<?= $this->nettoyer($aeroport['id']) ?>" >
+        <p class="efface"><a href="AdminReservations/retablir/<?= $this->nettoyer($reservation['id']) ?>" >
                 [Rétablir]</a>
-            Aeroport du <?= $this->nettoyer($aeroport['date']) ?>, par <?= $this->nettoyer($aeroport['auteur']) ?> <?= $this->nettoyer($aeroport['prive']) ? '(EN PRIVÉ)' : '' ?> effacé!
+            Reservation du <?= $this->nettoyer($reservation['date']) ?>, par <?= $this->nettoyer($reservation['auteur']) ?> <?= $this->nettoyer($reservation['prive']) ? '(EN PRIVÉ)' : '' ?> effacé!
         </p>
     <?php endif; ?>
 <?php endforeach; ?>

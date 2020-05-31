@@ -1,12 +1,12 @@
 <?php
 
-require_once 'Modele/Aeroport.php';
+require_once 'Modele/Reservation.php';
 
-$tstAeroport = new Aeroport;
-$aeroports = $tstAeroport->getAeroports(1);
-echo '<h3>Test getAeroports : </h3>';
-var_dump($aeroports->rowCount());
+$tstReservation = new Reservation;
+$reservations = $tstReservation->getReservations(1);
+echo '<h3>Test getReservations : </h3>';
+var_dump($reservations->rowCount());
 
-$aeroport = $tstAeroport->getAeroport(5);
-echo '<h3>Test getAeroport : </h3>';
-var_dump($aeroport);
+$reservation = $tstReservation->getReservation(5);
+echo '<h3>Test getReservation : </h3>';
+var_dump($reservation);

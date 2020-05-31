@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Framework/Vue.php';
-$aeroport = [
+$reservation = [
         'id' => '999',
         'plans_vol_id' => '111',
         'date' => '2017-12-31',
@@ -10,6 +10,6 @@ $aeroport = [
         'titre' => 'titre Test',
         'texte' => 'texte Test',
     ];
-$vue = new Vue('Confirmer', 'AdminAeroports');
-$vue->generer(['aeroport' => $aeroport], null);
+$vue = new Vue('Confirmer', 'AdminReservations');
+$vue->generer(['reservation' => $reservation], null);
 

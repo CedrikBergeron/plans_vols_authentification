@@ -1,41 +1,31 @@
-<?php $this->titre = "Le Blogue du prof - " . $this->nettoyer($plans_vol['titre']); ?>
+<?php $this->titre = "Le Blogue du prof - " . $this->nettoyer($plans_vol['id']); ?>
 
 <plans_vol>
     <header>
-        <h1 class="titrePlans_vol"><?= $this->nettoyer($plans_vol['titre']) ?></h1>
-        <time><?= $this->nettoyer($plans_vol['date']) ?></time>, par <?= $this->nettoyer($plans_vol['nom']) ?>
-        <h3 class=""><?= $this->nettoyer($plans_vol['sous_titre']) ?></h3>
+        <h1 class="titrePlans_vol"><?= $this->nettoyer($plans_vol['id']) ?></h1>
+        par <?= $this->nettoyer($plans_vol['cie_nom']) ?><br/>
+        Départ à <?= $this->nettoyer($plans_vol['heure_depart']) ?><br/>
+        Arrivé à <?= $this->nettoyer($plans_vol['heure_arrive']) ?>
     </header>
-    <p><?= $this->nettoyer($plans_vol['texte']) ?></p>
-    <p><?= $this->nettoyer($plans_vol['type']) ?></p>
+    <p>Type d'appareil: <?= $this->nettoyer($plans_vol['code_type_avion']) ?></p>
 </plans_vol>
 <hr />
 <header>
-    <h1 id="titreReponses">Réponses à <?= $this->nettoyer($plans_vol['titre']) ?> :</h1>
+    <h1 id="titreReponses">Réservations pour le vol <?= $this->nettoyer($plans_vol['id']) ?> :</h1>
 </header>
-<?= ($aeroports->rowCount() == 0) ? '<p class="message">Pas encore de aeroports pour cet plans_vol.</p>' : '' ?>
+<?= ($reservations->rowCount() == 0) ? '<p class="message">Pas encore de reservations pour ce vol</p>' : '' ?>
 <?php
-foreach ($aeroports as $aeroport):
+foreach ($reservations as $reservation):
     ?>
         <p>
-            <?= $this->nettoyer($aeroport['date']) ?>, <?= $this->nettoyer($aeroport['auteur']) ?> dit :<br/>
-            <strong><?= $this->nettoyer($aeroport['titre']) ?></strong><br/>
-            <?= $this->nettoyer($aeroport['texte']) ?>
+            Réservation <?= $this->nettoyer($reservation['id']) ?> fait par <?= $this->nettoyer($plans_vol['nomUtil']) ?> :<br/>
+            Pour <strong><?= $this->nettoyer($reservation['nombre_personne']) ?></strong> personne(s) en classe 
+            <strong><?= $this->nettoyer($reservation['classe']) ?></strong>
         </p>
 <?php endforeach; ?>
 
-<form action="Aeroports/ajouter" method="post">
-    <h2>Ajouter un aeroport</h2>
-    <p>
-        <label for="auteur">Courriel de l'auteur (xxx@yyy.zz)</label> : <input type="text" name="auteur" id="auteur" /> 
-        <?= ($erreur == 'courriel') ? '<span style="color : red;">Entrez un courriel valide s.v.p.</span>' : '' ?> 
-        <br />
-        <label for="texte">Titre</label> :  <input type="text" name="titre" id="titre" /><br />
-        <label for="texte">Aeroport</label> :  <textarea type="text" name="texte" id="texte" >Écrivez votre aeroport ici</textarea><br />
-        <label for="prive">Privé?</label><input type="checkbox" name="prive" />
-        <input type="hidden" name="plans_vol_id" value="<?= $this->nettoyer($plans_vol['id']) ?>" /><br />
-        <input type="submit" value="Envoyer" />
-    </p>
+<form action="Reservations/ajouter" method="post">
+
 </form>
 
 

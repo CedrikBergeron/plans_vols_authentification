@@ -11,18 +11,19 @@ class Plans_vol extends Modele {
 
 // Renvoie la liste de tous les plans_vols, triés par identifiant décroissant avec le nom de l'utilisateus lié
     public function getPlans_vols() {
-//        $sql = 'select plans_vols.id, titre, sous_titre, utilisateur_id, date, texte, type, nom from plans_vols, utilisateurs'
-//                . ' where plans_vols.utilisateur_id = utilisateurs.id order by ID desc';
-        $sql = 'SELECT p.numero_vol,'
+        $sql = 'SELECT p.id,'
                 . ' p.code_cie_aerienne,'
                 . ' p.code_type_avion,'
                 . ' p.code_aeroport_depart,'
                 . ' p.code_aeroport_arrive,'
                 . ' p.heure_depart,'
                 . ' p.heure_arrive,'
-                . ' u.nom,'
-                . ' u.identifiant'
+                . ' p.utilisateur_id,'
+                . ' c.nom AS cie_nom,'
+                . ' u.nom as nomUtil'
                 . ' FROM plans_vols p'
+                . ' INNER JOIN compagnies_aeriennes c'
+                . ' ON p.code_cie_aerienne = c.code'
                 . ' INNER JOIN utilisateurs u'
                 . ' ON p.utilisateur_id = u.id'
                 . ' ORDER BY id desc';
@@ -53,23 +54,27 @@ class Plans_vol extends Modele {
 
 // Renvoie les informations sur un plans_vol avec le nom de l'utilisateur lié
     function getPlans_vol($idPlans_vol) {
-        $sql = 'SELECT a.id,'
-                . ' a.titre,'
-                . ' a.sous_titre,'
-                . ' a.utilisateur_id,'
-                . ' a.date,'
-                . ' a.texte,'
-                . ' a.type,'
-                . ' u.nom'
-                . ' FROM plans_vols a'
+        $sql = 'SELECT p.id,'
+                . ' p.code_cie_aerienne,'
+                . ' p.code_type_avion,'
+                . ' p.code_aeroport_depart,'
+                . ' p.code_aeroport_arrive,'
+                . ' p.heure_depart,'
+                . ' p.heure_arrive,'
+                . ' p.utilisateur_id,'
+                . ' c.nom AS cie_nom,'
+                . ' u.nom as nomUtil'
+                . ' FROM plans_vols p'
+                . ' INNER JOIN compagnies_aeriennes c'
+                . ' ON p.code_cie_aerienne = c.code'
                 . ' INNER JOIN utilisateurs u'
-                . ' ON a.utilisateur_id = u.id'
-                . ' WHERE a.id=?';
+                . ' ON p.utilisateur_id = u.id'
+                . ' WHERE p.id=?';
         $plans_vol = $this->executerRequete($sql, [$idPlans_vol]);
         if ($plans_vol->rowCount() == 1) {
             return $plans_vol->fetch();  // Accès à la première ligne de résultat
         } else {
-            throw new Exception("Aucun plans_vol ne correspond à l'identifiant '$idPlans_vol'");
+            throw new Exception("Aucun plan de vol ne correspond à l'identifiant '$idPlans_vol'");
         }
     }
 

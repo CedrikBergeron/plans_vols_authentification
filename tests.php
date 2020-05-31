@@ -2,8 +2,8 @@
 if (isset($_GET['test'])) {
     if ($_GET['test'] == 'modelePlans_vol') {
         require 'Tests/Modeles/testPlans_vol.php';
-    } else if ($_GET['test'] == 'modeleAeroport') {
-        require 'Tests/Modeles/testAeroport.php';
+    } else if ($_GET['test'] == 'modeleReservation') {
+        require 'Tests/Modeles/testReservation.php';
     } else if ($_GET['test'] == 'vuePlans_vols') {
         require 'Tests/Vues/testVuePlans_vols.php';
     } else if ($_GET['test'] == 'vueConfirmer') {
@@ -21,7 +21,7 @@ if (isset($_GET['test'])) {
         <a href="tests.php?test=modelePlans_vol">Plans_vol</a>
     </li>
     <li>
-        <a href="tests.php?test=modeleAeroport">Aeroport</a>
+        <a href="tests.php?test=modeleReservation">Reservation</a>
     </li>
 </ul>
 <h3>Tests de Vues</h3>
